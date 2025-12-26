@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>日翔志 後援会｜公式サイト</title>
+  <meta name="description" content="日翔志関の公式後援会サイト。入会手続き、会則、返礼品、よくある質問、最新情報（Instagram）への導線をシンプルに掲載。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+    font-family: 'Noto Serif JP', serif;
+        }
+    .container-narrow { max-width: 980px; }
+    .logo-circle { background: radial-gradient(circle at 30% 30%, rgba(0,0,0,.06), transparent 40%); }
+    .shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .bg-paper { background-image: linear-gradient(to bottom right, #fafafa, #f3f4f6); }
+    .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,.15), transparent); }
+    .prose p { margin: .75rem 0; }
+
+    /* 背景クロスフェード用レイヤー */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 800ms ease;
+    }
+    .bg-layer.is-active { opacity: 1; }
+
+/* 本文を和風の明朝体に */
+body {
+  font-family: 'Noto Serif JP', serif;
+  color: white; /* 全体を白文字 */
+}
+
+/* 白いカードの中だけ黒文字に戻す */
+.bg-white\/80, .bg-white, .bg-paper {
+  color: #111 !important;
+}
+
+/* 見出しをさらに和風に */
+h1, h2, h3 {
+  font-family: 'Shippori Mincho', serif;
+  letter-spacing: 0.03em;
+}
+
+/* テキストの可読性を保ちつつ、背景を少し濃く＆暗くするグラデーション */
+.bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 上はうっすら白、下にいくほど暗く */
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.25),
+    rgba(0,0,0,0.55)
+  );
+}
+  </style>
+  <!-- OGP -->
+  <meta property="og:title" content="日翔志 後援会｜公式サイト" />
+  <meta property="og:description" content="日翔志関の公式後援会。入会・会則・返礼品・FAQ・最新情報。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="images/ogp.jpg" />
+</head>
+
+<body class="bg-paper text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-black text-white rounded px-3 py-2">本文へスキップ</a>
+
+  <!-- 背景レイヤー（スクロールで切替） -->
+  <div id="bgA" class="bg-layer is-active" style="background-image:url('images/gallery-hishoshi-1.jpg');"></div>
+  <div id="bgB" class="bg-layer"></div>
+
+  <!-- ヘッダー -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-black/5">
+    <div class="mx-auto container-narrow px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center logo-circle bg-white">
+            <span class="text-xs font-semibold tracking-tight leading-none">
+              日<br>翔<br>志
+            </span>
+          </div>
+          <div class="leading-tight">
+            <p class="text-sm text-gray-500">後援会</p>
+            <p class="font-bold"><p class="text-sm text-gray-500">日翔志</p>
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:opacity-70">後援会について</a>
+          <a href="#benefits" class="hover:opacity-70">会員特典</a>
+          <a href="#join" class="hover:opacity-70">入会</a>
+          <a href="#gifts" class="hover:opacity-70">返礼品</a>
+          <a href="#rules" class="hover:opacity-70">会則</a>
+          <a href="#faq" class="hover:opacity-70">FAQ</a>
+          <a href="#news" class="hover:opacity-70">Instagram</a>
+        </nav>
+        <a href="#join" class="ml-4 inline-flex items-center rounded-full bg-black text-white text-sm px-4 py-2 hover:bg-black/90">
+          入会のご案内
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- メインビジュアル -->
+  <section class="relative overflow-hidden">
+    <div class="mx-auto container-narrow px-4 py-10 md:py-16">
+      <div class="grid md:grid-cols-2 gap-10 items-center text-white">
+        <div>
+          <p class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full bg-black/5 text-black/70 text-white">
+            日翔志関 後援会
+          </p>
+          <h1 class="mt-4 text-2xl md:text-3xl font-bold leading-relaxed text-white">
+            日翔志関を<br class="hidden md:block">ともに支え、ともに喜ぶ。
+          </h1>
+          <p class="mt-4 text-sm md:text-base text-white">
+            本サイトは、日翔志関を応援する公式後援会のご案内ページです。
+            入会方法や会員特典、会則、返礼品、最新情報（Instagram）へのリンクなどを掲載しています。
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#join" class="inline-flex items-center rounded-full bg-black text-white text-sm px-5 py-2.5 shadow-soft hover:bg-black/90">
+              入会する
+            </a>
+            <a href="#about" class="inline-flex items-center rounded-full border border-black/10 bg-white/80 text-sm px-4 py-2 hover:bg-white">
+              後援会について知る
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-soft border border-black/5 bg-white/70 flex items-center justify-center">
+            <!-- メイン画像（差し替え） -->
+            <img src="images/hero.jpg" alt="日翔志関の取り組みの様子" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- メインコンテンツ -->
+  <main id="main">
+    <!-- 後援会について -->
+    <section id="about" class="mx-auto container-narrow px-4 py-12">
+      <div class="grid md:grid-cols-3 gap-8 items-start">
+        <div class="md:col-span-2">
+          <h2 class="text-xl md:text-2xl font-bold text-white">後援会について</h2>
+          <p class="mt-3 text-sm md:text-base text-gray-700 text-white">
+            日翔志後援会は、日翔志関の土俵での活躍はもちろん、日々の稽古や地域での活動を継続的に支えるための会です。
+            会費は、稽古環境の整備や遠征費用の支援、広報活動などに役立てられます。
+          </p>
+          <div class="mt-4 prose text-sm text-white">
+            <p>・個人・法人を問わずご入会いただけます。</p>
+            <p>・会員限定のご案内や返礼品など、ささやかながら感謝の気持ちをお届けします。</p>
+          </div>
+        </div>
+        <div class="md:col-span-1">
+          <div class="rounded-2xl border border-black/5 bg-white/80 p-4 text-sm shadow-soft">
+            <h3 class="font-semibold text-sm mb-2">概要</h3>
+            <dl class="space-y-1">
+              <div class="flex justify-between gap-3">
+                <dt class="text-gray-500">名称</dt>
+                <dd class="text-right">日翔志後援会</dd>
+              </div>
+              <div class="flex justify-between gap-3">
+                <dt class="text-gray-500">対象力士</dt>
+                <dd class="text-right">日翔志関</dd>
+              </div>
+              <div class="flex justify-between gap-3">
+                <dt class="text-gray-500">会費</dt>
+                <dd class="text-right">年会費 ○○円〜</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider mx-auto container-narrow px-4"></div>
+
+    <!-- 会員特典 -->
+    <section id="benefits" class="mx-auto container-narrow px-4 py-12">
+      <h2 class="text-xl md:text-2xl font-bold text-white">会員特典</h2>
+      <p class="mt-3 text-sm md:text-base text-white">
+        会員の皆さまには、以下のような特典をご用意しております。
+      </p>
+<div class="mt-6 rounded-2xl border border-black/5 bg-white/80 shadow-soft overflow-hidden">
+  <div class="px-4 py-3 border-b border-black/5">
+    <p class="text-sm text-gray-700">
+      プランごとの特典内容は以下の通りです（※内容は変更になる場合があります）。
+    </p>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-[720px] w-full text-sm">
+      <thead class="bg-black/5">
+        <tr>
+          <th class="text-left font-semibold px-4 py-3 text-center">プラン</th>
+          <th class="text-left font-semibold px-4 py-3 text-center">ステッカー</th>
+          <th class="text-left font-semibold px-4 py-3 text-center">番付表（年6回）</th>
+          <th class="text-left font-semibold px-4 py-3 text-center">選べる返礼品</th>
+          <th class="text-left font-semibold px-4 py-3 text-center">大相撲カレンダー（年1回）</th>
+          <th class="text-left font-semibold px-4 py-3 text-center">手形色紙</th>
+        </tr>
+      </thead>
+
+      <tbody class="text-gray-700">
+        <tr class="border-t border-black/5">
+          <td class="px-4 py-3 font-semibold text-center">A</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">—</td>
+          <td class="px-4 py-3 text-center">—</td>
+          <td class="px-4 py-3 text-center">—</td>
+          <td class="px-4 py-3 text-center">—</td>
+        </tr>
+
+        <tr class="border-t border-black/5">
+          <td class="px-4 py-3 font-semibold text-center">B</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">1品</td>
+          <td class="px-4 py-3 text-center">—</td>
+          <td class="px-4 py-3 text-center">—</td>
+        </tr>
+
+        <tr class="border-t border-black/5">
+          <td class="px-4 py-3 font-semibold text-center">C</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">1品</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">—</td>
+        </tr>
+
+        <tr class="border-t border-black/5">
+          <td class="px-4 py-3 font-semibold text-center">D</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">1品</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+        </tr>
+
+        <tr class="border-t border-black/5">
+          <td class="px-4 py-3 font-semibold text-center">E</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">2品</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="px-4 py-3 border-t border-black/5 text-xs text-gray-600">
+    ※「選べる返礼品」は時期により内容が異なる場合があります。
+  </div>
+</div>
+
+    </section>
+
+    <div class="divider mx-auto container-narrow px-4"></div>
+
+
+    <!-- 返礼品 -->
+    <section id="gifts" class="mx-auto container-narrow px-4 py-12">
+      <h2 class="text-xl md:text-2xl font-bold text-white">選べる返礼品</h2>
+      <p class="mt-3 text-sm md:text-base text-white">
+        選べる返礼品の一例をご紹介しております。返礼品の内容は時期によって変更となるため、最新の情報や詳細につきましては、公式Instagramの投稿をご確認ください。
+      </p>
+      <div class="mt-6 grid md:grid-cols-3 gap-6 text-sm">
+        <div class="rounded-2xl border border-black/5 bg-white/80 p-4 shadow-soft">
+          <h3 class="font-semibold">手拭い</h3>
+          <p class="mt-2 text-gray-700 text-xs md:text-sm">
+            日翔志関の四股名やシルエットをあしらったオリジナルデザイン。
+          </p>
+        </div>
+        <div class="rounded-2xl border border-black/5 bg-white/80 p-4 shadow-soft">
+          <h3 class="font-semibold">ステッカー・木札</h3>
+          <p class="mt-2 text-gray-700 text-xs md:text-sm">
+            応援で使える小物や、観戦のおともになるグッズを予定しています。
+          </p>
+        </div>
+        <div class="rounded-2xl border border-black/5 bg-white/80 p-4 shadow-soft">
+          <h3 class="font-semibold">会員限定グッズ</h3>
+          <p class="mt-2 text-gray-700 text-xs md:text-sm">
+            将来的には、会員限定の記念品も検討しています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider mx-auto container-narrow px-4"></div>
+
+    <!-- 入会 -->
+    <section id="join" class="mx-auto container-narrow px-4 py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="text-xl md:text-2xl font-bold text-white">入会のご案内</h2>
+          <p class="mt-3 text-sm md:text-base text-white">
+            ご入会を希望される方は、右記のフォームに必要事項をご記入ください。
+          </p>
+          <ul class="mt-4 text-sm text-white list-disc list-inside">
+            <li>個人会員・法人会員のいずれも受付予定です。</li>
+            <li>年会費・口数・お支払い方法の詳細は、会則6条をご確認ください。</li>
+          </ul>
+        </div>
+
+        <div>
+	<div class="rounded-2xl border border-black/5 bg-white/80 p-6 text-sm shadow-soft">
+  	 <h3 class="font-semibold mb-3">入会フォーム</h3>
+	 <p class="text-gray-700 text-sm mb-4">
+	  入会のお手続きは、以下のフォームから受け付けています。
+	 </p>
+	 <div class="space-y-3">
+	<!-- 個人 -->
+  	<a href="https://forms.gle/jRVnS2XFWAEpQQGw7"
+     	target="_blank" rel="noopener noreferrer"
+     	class="inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm px-5 py-3 hover:bg-black/90 transition">
+    	個人の方はこちらから
+	  </a>
+
+	  <!-- 法人 -->
+	  <a href="https://forms.gle/Mou9tQwibKXSqi1s8"
+    	 target="_blank" rel="noopener noreferrer"
+    	 class="inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm px-5 py-3 hover:bg-black/90 transition">
+   	 法人の方はこちらから
+ 	 </a>
+	</div>
+
+	</div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider mx-auto container-narrow px-4"></div>
+  <!-- 会則・規約 -->
+  <section id="rules" class="mx-auto container-narrow px-4 py-12">
+    <div class="rounded-2xl border border-gray-200 p-6 bg-white shadow-soft">
+      <h2 class="text-xl md:text-2xl font-bold">会則・規約</h2>
+      <details class="mt-4 text-sm text-gray-700">
+        <summary class="cursor-pointer flex items-center justify-between px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100">
+          <span class="font-semibold">会則全文を表示</span>
+          <span class="text-xs text-gray-500">クリックで開閉</span>
+        </summary>
+        <div class="mt-3 max-h-96 overflow-y-scroll pr-4 border border-gray-200 rounded-lg bg-white/70 space-y-3 p-4">
+
+          <p><strong>第１条（活動目的）</strong><br>日翔志関後援会は、皆様に愛される力士、怪我に強い力士を育てるべく、真摯に力士の指導にあたるとともに、大相撲の伝統を深く理解した上で、科学的な稽古やスポーツビジネスの手法を導入し、また、現役力士と小学生との稽古、「わんぱく相撲」、稽古見学、小・中学校と連携しての相撲教室や体育授業の請負等を通じて、より相撲を身近に感じていただけるよう取り組むことなどにより、相撲の発展に寄与し、全国の相撲ファンのため、邁進し、本後援会は上記活動方針をご理解いただき、これをご支援いただくことを目的とします。 </p>
+
+          <p><strong>第２条（本規約の範囲）</strong><br>本規約は、本規約第３条に定める会員に適用されます。</p>
+
+          <p><strong>第３条（会員）</strong><br>日翔志関後援会の目的及び活動に賛同し、応援する個人又は法人を会員とします。</p>
+
+          <p><strong>第４条（入会）</strong><br>１ 入会希望者は、所定の申込方法により申込みをし、本規約その他会員に適用される規則等を遵守することを確約した上で、日翔志関後援会の承認を得て会員となるものとします。<br>
+          ２ 日翔志関後援会は入会申込者が、以下の各号のいずれかひとつにでも該当する場合は、入会の承認をしない場合があります。<br>
+          （１）日翔志関後援会の趣旨に賛同していないと判断した場合<br>
+          （２）過去に本規約違反等により、入会承認の撤回又は会員資格の喪失が行われていることが判明した場合<br>
+          （３）入会申込書の記載内容に虚偽の記載、誤記、又は記入漏れがある場合<br>
+          （４）会員になろうとする者の事業若しくは商品が法令に違反している場合、若しくは著しく社会規範に反する場合又はそれらの恐れがあると判断した場合<br>
+          （５）暴力団、暴力団関係企業・団体その他の反社会的組織に所属する場合及び暴力団員又はこれらと密接な関係を有する者と関係していると合理的に判断される場合<br>
+          （６）その他、会員とすることを不適当と判断した場合<br>
+          ３ 日翔志関後援会は、入会を承認した後であっても、会員が前項各号のいずれかに該当することが判明した場合には、承認を撤回できるものとします。</p>
+
+          <p><strong>第５条（会員名簿）</strong><br>１ 日翔志関後援会は、会員の氏名・名称及び住所を記載した会員名簿を作成し、日翔志関後援会の主たる事務所に備え置くものとします。<br>
+          ２ 日翔志関後援会の会員に対する通知又は催告は、会員名簿に記載した住所にあてて行うものとします。<br>３ 日翔志関後援会が前項の住所にあてて通知又は催告を発した場合には、仮に到達しない場合であっても、通常到達すべき時に到達したものとみなすこととします。</p>
+
+          <p><strong>第６条（会費及び支払方法）</strong><br>１ 会員は、個人会員と法人会員の２種とします。<br>２ 個人会員の会費は月会費とし、以下の種類とします。 <br> 　　個人会員 月１,５００円<br>　　個人会員 月３,０００円（一口）<br> なお、月３,０００円を超える場合には、月３,０００円を一口として複数口のお申込みもできるものとします。<br>３ 法人会員の会費は年会費とし、以下の種類とします。<br>　　法人会員 年  １００,０００円<br>　　法人会員 年  ３００,０００円<br>　　法人会員 年  ５００,０００円 <br>　　法人会員 年１,０００,０００円<br>　　法人会員 年２,０００,０００円（一口） <br> なお、年２,０００,０００円を超える場合には、年２,０００,０００円を一口として、複数口のお申込みもできるものとします。 <br>４ 個人会員について歴月の途中で入会する場合であっても、日割計算は行わず、当該歴月の会費全額を納入する必要があるものとします。また、法人会員について歴月の途中で入会する場合であっても、日割計算は行わず、当該歴月から翌年の同じ月の前月までの１年分の会費全額を納入する必要があるものとします。 <br> ５ 会員は第２項又は第３項の会費を所定の方法により納入するものとし、納入された会費は、理由の如何を問わず返還いたしません。途中で退会した場合の未経過分の会費も同様とします。  <br>６ 日翔志関後援会の提供するサービスの利用にあたり、会費のほかに別途参加費用が必要となった場合は、予めこれを会員にお知らせするものとし、会員が当該サービスを利用する場合には、これを支払うものとします。  <br>７ 日翔志関後援会は、会員への事前の告知をもって、会費を変更することができるものとします。  <br>８ 会費及び参加費用は、日翔志関後援会が別に定める方法で支払うものとします。なお支払いに伴い振込手数料等が発生した場合は、会員の負担とします。 <br>９ 会費及び参加費用は前納とします。 <br>１０ 会費及び参加費用のほか、日翔志関後援会は会員から随時寄付を受け付けるものとします。 </p>
+
+          <p><strong>第７条（特典）</strong><br>１ 個人会員及び法人会員は、会員の種類ごとに特典を受けることができるものとし、特典の内容については、日翔志関後援会ウェブサイトへの掲載その他の方法により告知するものとします。<br>２ 前項の特典の内容については、日翔志関後援会において随時変更することができるものとし、変更する場合には日翔志関後援会のウェブサイトへの掲載その他の方法により告知するものとします。 <br>３ 会員は、特典に関して、以下の事項を了承するものとします。 <br>（１）第６条第２項又は第３項において複数口のお申込みをいただいた場合であっても、特典の種類により、口数分のご提供をできないものがあること。<br>（２）入会の時期により、当該年の特典であってもご提供できないものがあること。 </p>
+
+          <p><strong>第８条（禁止事項）</strong><br>日翔志関後援会は、会員が以下に定める行為をすることを禁止します。<br>（１）本規約に基づく権利又は義務を第三者に譲渡、移転若しくは貸与し又は担保に供する等の行為<br>（２）会員の会員番号、パスワード、会員証、記念品その他日翔志関後援会から会員の特典として交付された物等の売買・譲渡、架空名義の使用、不正な名義変更及びこれらの第三者への使用許諾 <br>（３）日翔志関後援会の承諾なしに、日翔志関後援会支援のための街頭募金、街頭での入会勧誘等をする行為 <br>（４）日翔志関後援会の事前の承認なしに、日翔志関後援会の名称・ロゴ等を使用し、また、日翔志関後援会より入手したデータ、情報、文章、音、映像、イラストその他全てのコンテンツについて、複製・転載、公衆送信、展示、頒布、譲渡、貸与、翻訳・翻案、出版、改変・編集等をすること。 <br>（５）日翔志関後援会を利用して、会員又は第三者の営利を目的とした活動及びその準備を目的とした活動 <br>（６）許可なく日翔志関後援会の敷地に立ち入り、又は日翔志関後援会に所属する者につきまとう行為 <br>（７）日翔志関後援会の名誉を傷つけ、信用を失墜させる行為、日翔志関後援会の物を毀損する行為その他日翔志関後援会に被害を与える行為 </p>
+
+          <p><strong>第９条（会員情報）</strong><br>１ 日翔志関後援会は、会員が登録した情報及び会員によるサービスの利用履歴等の情報(以下「会員情報」といいます。)を適正に管理することに努めます。 <br>２ 日翔志関後援会の目的を達成するために外部委託等を必要とする場合には、日翔志関後援会は、外部委託先との間で会員情報の秘密保持に関する契約を締結し、外部委託先に契約遵守を確約させた上で必要な会員情報を提供することができるものとします。 <br>３ 日翔志関後援会は、前項又は以下の各号のいずれかに該当する場合を除き、会員情報を第三者に提供しません。<br>（１）法令に基づく場合<br>（２）本人の同意がある場合 <br>（３）法令により要請され、かつ、日翔志関後援会が開示を妥当だと判断した場合<br>（４）利用目的の達成に必要な範囲内で、業務の一部を委託する場合<br>（５）個人情報保護法等により、本人の同意を得ずに提供が認められている場合 </p>
+
+          <p><strong>第１０条（有効期間）</strong><br>１ 本規約に基づく会員資格の有効期間は、入会した日から翌年の同じ日が属する月の前月の末日（入会した日が２月２９日の場合には翌年の１月３１日）までとします。 <br>２ 期間満了日の１ヶ月前までに、会員又は日翔志関後援会から相手方に対し、書面による特段の意思表示がない場合には、第６条に従った月会費又は年会費の支払いがあることを条件として、更に有効期間を１年間ずつ自動更新するものとし、以降も同様とします。</p>
+
+          <p><strong>第１１条（会員の義務）</strong><br>１ 会員は、日翔志関後援会の活動に対して協力するものとします。<br>２ 会員は、入会申込書・入会申込フォームの記載事項に変更が生じた場合には、すみやかに届け出るものとします。会員が登録情報の変更を怠った結果、日翔志関後援会からの通知等が会員に到達しなかった場合、又は会員特典その他のサービスを受ける機会を喪失する等の不利益が生じた場合については、日翔志関後援会は一切責任を負わないものとします。また、会員から日翔志関後援会への連絡は指定する連絡先に対して行うものとします。 </p>
+
+          <p><strong>第１２条（退会）</strong><br>会員は、以下の各号に掲げる事由によって退会するものとします。<br>（１）会員本人の退会の申し出があった場合。なお、退会の申し出は、期間満了日の１ヶ月前までにするものとしますが、やむを得ない事由があるときは、いつでも退会すること
+ができます。<br> （２）会費納入期限を３ヶ月過ぎるも会費の納入がない場合 <br>（３）死亡又は解散した場合 <br>（４）転居、行方不明など所在の知れない場合 <br>（５）次条により会員資格を喪失した場合 </p>
+
+          <p><strong>第１３条（会員資格喪失）</strong><br>１ 日翔志関後援会は、以下に定める事由のほか、正当な事由があるときは、会員の会員資格を喪失させることができるものとします。 <br>（１）本規約又は日翔志関後援会が随時定める規約、規則等に違反した場合 <br>（２）日翔志関後援会の名誉を傷つけ、又はその目的に反する行為をした場合 <br>（３）その他の正当な事由がある場合 <br>２ 前項により会員資格の喪失を決定した場合は、その会員に対し通知するものとします。 </p>
+
+          <p><strong>第１４条（権利帰属）</strong><br>１ 日翔志関後援会の名称・ロゴ等及び日翔志関後援会より会員に交付したデータ、情報、文章、音、映像、イラストその他全てのコンテンツの権利は日翔志関後援会に帰属するものであり、会員は、日翔志関後援会の事前の承認なしに、日翔志関後援会の名称・ロゴ等を使用し、また、日翔志関後援会より入手したデータ、情報、文章、音、映像、イラストその他全てのコンテンツについて、複製・転載、公衆送信、展示、頒布、譲渡、貸与、翻訳・翻案、出版、改変・編集等をすることはできません。 <br>２ 前項は、退会後であっても適用されるものとします。 </p>
+
+          <p><strong>第１５条（改正）</strong><br>本規約は、日翔志関後援会により変更することができるものとし、変更をウェブサイトへの掲載その他の方法により会員に告知するものとします。</p>
+
+          <p><strong>附則</strong><br>本規約は２０２６年１月１日より施行するものとします。</p>
+
+          <p class="text-xs text-gray-500"></p>
+
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- FAQ（アコーディオン） -->
+  <section id="faq" class="mx-auto container-narrow px-4 py-12">
+    <h2 class="text-xl md:text-2xl font-bold text-white">よくある質問</h2>
+    <div class="mt-6 divide-y divide-gray-200 border border-gray-200 rounded-2xl">
+      <details class="group p-5">
+        <summary class="cursor-pointer list-none flex items-center justify-between">
+          <span class="font-semibold text-white">FAQを記載</span>
+          <span class="transition group-open:rotate-45">＋</span>
+        </summary>
+        <div class="mt-3 text-sm text-white">回答を記載</div>
+      </details>
+      <details class="group p-5">
+        <summary class="cursor-pointer list-none flex items-center justify-between">
+          <span class="font-semibold text-white">途中退会はできますか？</span>
+          <span class="transition group-open:rotate-45">＋</span>
+        </summary>
+        <div class="mt-3 text-sm text-white">年度途中の退会は可能ですが、会費の返金は原則いたしかねます（会則をご確認ください）。</div>
+      </details>
+      <details class="group p-5">
+        <summary class="cursor-pointer list-none flex items-center justify-between">
+          <span class="font-semibold text-white">返礼品の発送時期は？ </span>
+          <span class="transition group-open:rotate-45">＋</span>
+        </summary>
+        <div class="mt-3 text-sm text-white">年数回を目安に一括発送します。最新情報はInstagramでお知らせします。</div>
+      </details>
+    </div>
+  </section>
+
+    <div class="divider mx-auto container-narrow px-4"></div>
+
+    <!-- Instagram など外部リンク -->
+    <section id="news" class="mx-auto container-narrow px-4 py-12">
+      <h2 class="text-xl md:text-2xl font-bold text-white">最新情報</h2>
+      <p class="mt-3 text-sm md:text-base text-white">
+        日翔志関の近況や本場所での活躍、メディア出演情報などは、Instagramを中心に随時更新します。
+      </p>
+      <div class="mt-4 text-sm text-white">
+        <p>・Instagram（日翔志関公式／後援会公式アカウント）</p>
+        <!--<p>・X（旧Twitter） など</p>-->
+        <!--<p class="mt-2 text-xs text-white">※注意事項などあれば</p>-->
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="mt-8 border-t border-black/5 bg-white/80">
+    <div class="mx-auto container-narrow px-4 py-6 text-xs text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <p>© <span id="year"></span> 日翔志後援会（準備中）</p>
+      <!--<p>本サイトの掲載内容・デザインは仮のものであり、正式な設立時に変更となる場合があります。</p>-->
+    </div>
+  </footer>
+
+  <script>
+    // 年号自動更新
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // スムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (href.length > 1) {
+          const el = document.querySelector(href);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    // ===== 背景クロスフェード & スクロール連動（ページ全体のスクロール量で切替） =====
+    (function () {
+      const bgA = document.getElementById('bgA');
+      const bgB = document.getElementById('bgB');
+      if (!bgA || !bgB) return;
+
+      // 1〜3枚目の画像パス（ローカルの images ディレクトリ）
+      const images = [
+        'images/gallery-hishoshi-1.jpg', // ページ上部
+        'images/gallery-hishoshi-2.jpg', // ページ中部
+        'images/gallery-hishoshi-3.jpg', // ページ下部
+      ];
+
+      // 画像プリロード
+      images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+
+      let showingA = true;
+      let currentIndex = -1;
+
+      const swapBg = (url) => {
+        const show = showingA ? bgB : bgA;
+        const hide = showingA ? bgA : bgB;
+        show.style.backgroundImage = `url('${url}')`;
+        show.classList.add('is-active');
+        hide.classList.remove('is-active');
+        showingA = !showingA;
+      };
+
+      const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+      const onScroll = () => {
+        const docEl = document.documentElement;
+        const body = document.body;
+
+        const scrollTop =
+          window.pageYOffset ||
+          docEl.scrollTop ||
+          body.scrollTop ||
+          0;
+
+        const viewportH = window.innerHeight || docEl.clientHeight;
+
+        // ドキュメント全体の高さ
+        const docHeight = Math.max(
+          body.scrollHeight,
+          body.offsetHeight,
+          docEl.scrollHeight,
+          docEl.offsetHeight
+        );
+
+        const maxScroll = Math.max(docHeight - viewportH, 1);
+        const ratio = clamp(scrollTop / maxScroll, 0, 1); // 0〜1 に正規化
+
+        // 0〜1 を 3 分割して 0,1,2 に対応
+        let index;
+        if (ratio < 1 / 3) {
+          index = 0;        // ページ上部：1枚目
+        } else if (ratio < 2 / 3) {
+          index = 1;        // ページ中部：2枚目
+        } else {
+          index = 2;        // ページ下部：3枚目
+        }
+
+        if (index !== currentIndex) {
+          swapBg(images[index]);
+          currentIndex = index;
+        }
+      };
+
+      // 初期状態：一番上では 1 枚目
+      swapBg(images[0]);
+      currentIndex = 0;
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll(); // リロード時の位置に応じて反映
+    })();
+  </script>
+</body>
+</html>
