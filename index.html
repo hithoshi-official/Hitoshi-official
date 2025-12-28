@@ -54,6 +54,30 @@
   }
 }
 
+/* ===== 余白を自然に埋める「ぼかし背景」 ===== */
+.bg-base{
+  /* bg-layer の opacity:0 を打ち消して、常に表示 */
+  opacity: 1;
+  z-index: -2;            /* bgA/bgB(-1) のさらに奥へ */
+  transition: none;       /* 常時表示なので不要 */
+
+  /* 余白を埋める：画面を埋める用 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* ぼかし＆縁の切れ防止 */
+  filter: blur(14px);
+  transform: scale(1.08);
+}
+
+/* ぼかし背景は少し控えめに（好みで調整可） */
+@media (min-width: 1024px){
+  .bg-base{
+    filter: blur(10px);
+  }
+}
+
     .bg-layer.is-active { opacity: 1; }
 
 /* 本文を和風の明朝体に */
@@ -74,7 +98,7 @@ h1, h2, h3 {
 }
 
 /* テキストの可読性を保ちつつ、背景を少し濃く＆暗くするグラデーション */
-.bg-layer::after {
+#bgA::after, #bgB::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -98,6 +122,7 @@ h1, h2, h3 {
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-black text-white rounded px-3 py-2">本文へスキップ</a>
 
   <!-- 背景レイヤー（スクロールで切替） -->
+  <div id="bgBase" class="bg-layer bg-base"></div>
   <div id="bgA" class="bg-layer is-active" style="background-image:url('images/gallery-hishoshi-1.jpg');"></div>
   <div id="bgB" class="bg-layer"></div>
 
@@ -497,6 +522,7 @@ h1, h2, h3 {
     (function () {
       const bgA = document.getElementById('bgA');
       const bgB = document.getElementById('bgB');
+      const bgBase = document.getElementById('bgBase');
       if (!bgA || !bgB) return;
 
       // 1〜3枚目の画像パス（ローカルの images ディレクトリ）
@@ -519,6 +545,7 @@ h1, h2, h3 {
         const show = showingA ? bgB : bgA;
         const hide = showingA ? bgA : bgB;
         show.style.backgroundImage = `url('${url}')`;
+        if (bgBase) bgBase.style.backgroundImage = `url('${url}')`;
         show.classList.add('is-active');
         hide.classList.remove('is-active');
         showingA = !showingA;
