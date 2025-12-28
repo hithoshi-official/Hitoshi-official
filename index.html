@@ -24,16 +24,36 @@
     .prose p { margin: .75rem 0; }
 
     /* 背景クロスフェード用レイヤー */
-    .bg-layer {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity 800ms ease;
-    }
+/* 背景クロスフェード用レイヤー */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  /* ★ここがポイント：見切れない（全体表示） */
+  background-size: contain;
+  background-position: center top; /* スマホで人物が切れにくいように上寄せ */
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transition: opacity 800ms ease;
+}
+
+.bg-layer.is-active { opacity: 1; }
+
+/* 画面が広いときは中央寄せに戻す（好みで） */
+@media (min-width: 768px) {
+  .bg-layer { background-position: center center; }
+}
+
+/* PCだけ：迫力優先で埋める（左右の余白を減らす） */
+@media (min-width: 1024px) {
+  .bg-layer {
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
     .bg-layer.is-active { opacity: 1; }
 
 /* 本文を和風の明朝体に */
@@ -114,7 +134,7 @@ h1, h2, h3 {
 
   <!-- メインビジュアル -->
   <section class="relative overflow-hidden">
-    <div class="mx-auto container-narrow px-4 py-10 md:py-16">
+    <div class="mx-auto max-w-6xl px-6 py-10 md:py-20">
       <div class="grid md:grid-cols-2 gap-10 items-center text-white">
         <div>
           <p class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded-full bg-black/5 text-black/70 text-white">
@@ -196,21 +216,24 @@ h1, h2, h3 {
       </p>
 <div class="mt-6 rounded-2xl border border-black/5 bg-white/80 shadow-soft overflow-hidden">
   <div class="px-4 py-3 border-b border-black/5">
-    <p class="text-sm text-gray-700">
-      プランごとの特典内容は以下の通りです（※内容は変更になる場合があります）。
-    </p>
+
   </div>
 
   <div class="overflow-x-auto">
-    <table class="min-w-[720px] w-full text-sm">
+    <table class="min-w-[860px] w-full text-sm">
       <thead class="bg-black/5">
         <tr>
-          <th class="text-left font-semibold px-4 py-3 text-center">プラン</th>
-          <th class="text-left font-semibold px-4 py-3 text-center">ステッカー</th>
-          <th class="text-left font-semibold px-4 py-3 text-center">番付表（年6回）</th>
-          <th class="text-left font-semibold px-4 py-3 text-center">選べる返礼品</th>
-          <th class="text-left font-semibold px-4 py-3 text-center">大相撲カレンダー（年1回）</th>
-          <th class="text-left font-semibold px-4 py-3 text-center">手形色紙</th>
+          <th class="text-left font-semibold px-4 py-3">プラン</th>
+          <th class="text-center font-semibold px-4 py-3">ステッカー</th>
+          <th class="text-center font-semibold px-4 py-3">番付表（年6回）</th>
+
+          <th class="text-center font-semibold px-4 py-3">大相撲カレンダー（年1回）</th>
+          <th class="text-center font-semibold px-4 py-3">選べる返礼品</th>
+
+          <th class="text-center font-semibold px-4 py-3">手形色紙</th>
+
+          <!-- ★ 新規追加列 -->
+          <th class="text-center font-semibold px-4 py-3">朝稽古見学（年1回）</th>
         </tr>
       </thead>
 
@@ -218,6 +241,7 @@ h1, h2, h3 {
         <tr class="border-t border-black/5">
           <td class="px-4 py-3 font-semibold text-center">A</td>
           <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td> <!-- ★ Aにも番付表を含める -->
           <td class="px-4 py-3 text-center">—</td>
           <td class="px-4 py-3 text-center">—</td>
           <td class="px-4 py-3 text-center">—</td>
@@ -228,6 +252,7 @@ h1, h2, h3 {
           <td class="px-4 py-3 font-semibold text-center">B</td>
           <td class="px-4 py-3 text-center">◯</td>
           <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">—</td>
           <td class="px-4 py-3 text-center">1品</td>
           <td class="px-4 py-3 text-center">—</td>
           <td class="px-4 py-3 text-center">—</td>
@@ -237,8 +262,9 @@ h1, h2, h3 {
           <td class="px-4 py-3 font-semibold text-center">C</td>
           <td class="px-4 py-3 text-center">◯</td>
           <td class="px-4 py-3 text-center">◯</td>
-          <td class="px-4 py-3 text-center">1品</td>
           <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">1品</td>
+          <td class="px-4 py-3 text-center">—</td>
           <td class="px-4 py-3 text-center">—</td>
         </tr>
 
@@ -246,26 +272,37 @@ h1, h2, h3 {
           <td class="px-4 py-3 font-semibold text-center">D</td>
           <td class="px-4 py-3 text-center">◯</td>
           <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
           <td class="px-4 py-3 text-center">1品</td>
           <td class="px-4 py-3 text-center">◯</td>
-          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">—</td>
         </tr>
 
         <tr class="border-t border-black/5">
           <td class="px-4 py-3 font-semibold text-center">E</td>
           <td class="px-4 py-3 text-center">◯</td>
           <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
           <td class="px-4 py-3 text-center">2品</td>
           <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">—</td>
+        </tr>
+
+        <!-- ★ プランF追加 -->
+        <tr class="border-t border-black/5">
+          <td class="px-4 py-3 font-semibold text-center">F</td>
           <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">2品</td>
+          <td class="px-4 py-3 text-center">◯</td>
+          <td class="px-4 py-3 text-center">◯</td> <!-- ★ 朝稽古見学 -->
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="px-4 py-3 border-t border-black/5 text-xs text-gray-600">
-    ※「選べる返礼品」は時期により内容が異なる場合があります。
-  </div>
+
 </div>
 
     </section>
@@ -406,47 +443,25 @@ h1, h2, h3 {
     </div>
   </section>
 
-  <!-- FAQ（アコーディオン） -->
-  <section id="faq" class="mx-auto container-narrow px-4 py-12">
-    <h2 class="text-xl md:text-2xl font-bold text-white">よくある質問</h2>
-    <div class="mt-6 divide-y divide-gray-200 border border-gray-200 rounded-2xl">
-      <details class="group p-5">
-        <summary class="cursor-pointer list-none flex items-center justify-between">
-          <span class="font-semibold text-white">FAQを記載</span>
-          <span class="transition group-open:rotate-45">＋</span>
-        </summary>
-        <div class="mt-3 text-sm text-white">回答を記載</div>
-      </details>
-      <details class="group p-5">
-        <summary class="cursor-pointer list-none flex items-center justify-between">
-          <span class="font-semibold text-white">途中退会はできますか？</span>
-          <span class="transition group-open:rotate-45">＋</span>
-        </summary>
-        <div class="mt-3 text-sm text-white">年度途中の退会は可能ですが、会費の返金は原則いたしかねます（会則をご確認ください）。</div>
-      </details>
-      <details class="group p-5">
-        <summary class="cursor-pointer list-none flex items-center justify-between">
-          <span class="font-semibold text-white">返礼品の発送時期は？ </span>
-          <span class="transition group-open:rotate-45">＋</span>
-        </summary>
-        <div class="mt-3 text-sm text-white">年数回を目安に一括発送します。最新情報はInstagramでお知らせします。</div>
-      </details>
-    </div>
-  </section>
+ 
 
     <div class="divider mx-auto container-narrow px-4"></div>
 
-    <!-- Instagram など外部リンク -->
+    <!-- Instagramリンク -->
     <section id="news" class="mx-auto container-narrow px-4 py-12">
       <h2 class="text-xl md:text-2xl font-bold text-white">最新情報</h2>
       <p class="mt-3 text-sm md:text-base text-white">
-        日翔志関の近況や本場所での活躍、メディア出演情報などは、Instagramを中心に随時更新します。
+        日翔志関の近況や本場所での活躍、返礼品のご案内などは、Instagramを中心に随時更新しています。
       </p>
-      <div class="mt-4 text-sm text-white">
-        <p>・Instagram（日翔志関公式／後援会公式アカウント）</p>
-        <!--<p>・X（旧Twitter） など</p>-->
-        <!--<p class="mt-2 text-xs text-white">※注意事項などあれば</p>-->
-      </div>
+
+　　　<p class="mt-4 text-sm text-white">
+    　　<a href="https://www.instagram.com/hitoshi_koenkai?igsh=MW1mN3Qza2Jqdjd4Mw==/"
+       　target="_blank" rel="noopener noreferrer"
+       　class="underline">Instagramはこちら
+    　　</a>
+  　　</p>
+　　</div>
+
     </section>
   </main>
 
@@ -477,6 +492,8 @@ h1, h2, h3 {
     });
 
     // ===== 背景クロスフェード & スクロール連動（ページ全体のスクロール量で切替） =====
+
+
     (function () {
       const bgA = document.getElementById('bgA');
       const bgB = document.getElementById('bgB');
@@ -557,5 +574,6 @@ h1, h2, h3 {
       onScroll(); // リロード時の位置に応じて反映
     })();
   </script>
+<script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
